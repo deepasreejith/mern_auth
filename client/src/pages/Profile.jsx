@@ -44,7 +44,7 @@ const Profile = () => {
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
       <form className='flex flex-col gap-4'>
         <input onChange={(e)=> setImage(e.target.files[0])} type='file' ref={fileRef} hidden accept='image/*' />
-        <img onClick={()=>fileRef.current.click()} src={currentUser.profilePicture} alt='profile' className='h-24 w-24 self-center cursor-pointer rounded-full object-cover mt-2' />
+        <img onClick={()=>fileRef.current.click()} src={formData.profilePicture || currentUser.profilePicture} alt='profile' className='h-24 w-24 self-center cursor-pointer rounded-full object-cover mt-2' />
         <p className='text-sm self-center'>{imageError ?(<span className='text-red-700'>Error uploading image</span>) : imagePercetage>0 && imagePercetage<100 ? (<span className='text-slate-700'>{`Uploading: ${imagePercetage} %`}</span>) : imagePercetage === 100 ?(<span className='text-green-700'>{`Image Upload successfully..`}</span>) :''}</p>
         <input defaultValue={currentUser.username} type='text' id='username' placeholder='Username' className='bg-slate-100 rounded-lg p-3' />
         <input defaultValue={currentUser.email} type='email' id='email' placeholder='Email' className='bg-slate-100 rounded-lg p-3' />
